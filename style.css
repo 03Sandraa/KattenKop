@@ -1,0 +1,146 @@
+:root{
+    --silhouetteColor: #555277;
+    --contrastColor: #F8DCE3;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--contrastColor);
+}
+
+.illustrationWrapper{
+    width: 30rem;
+    height: 27rem;
+    /* margin: 2rem auto; */
+    position: relative;
+}
+
+.illustrationWrapper::before{
+    content: "";
+    background-color: var(--silhouetteColor);
+    display: block;
+    position: absolute;
+    top: 2rem;
+    left: 0;
+
+    border-radius: 50%;
+    height: 25rem;
+    width: 30rem;
+}
+
+.oog, .neus{
+    position: absolute;
+    background-color: var(--contrastColor);
+}
+
+/* ---------- Oor ------------ */
+
+.oorLinks, .oorRechts{
+    width: 10rem;
+    height: 15rem;
+    border-radius: 0% 100% 42% 58% / 0% 65% 35% 100% ;
+    background-color: var(--silhouetteColor);
+    position: absolute;
+}
+
+.oorLinks{
+    top: 0;
+    left: 0; 
+}
+
+.oorRechts{
+    transform: scaleX(-1);
+
+    top: 0;
+    right: 0;
+}
+
+/* ---------- Oog ------------ */
+
+.oog{
+    width: 7.5rem;
+    height: 7rem;
+    border-radius: 22% 78% 55% 45% / 53% 100% 0% 47% ;
+    overflow: hidden;
+    animation: 10s linear 5s infinite normal both running knipperenOgen;
+}
+
+@keyframes knipperenOgen{
+    0%, 99%, 100%{
+        transform: scaleY(1);
+    }
+    99.5%{
+        transform: scaleY(0);
+    }
+}
+
+.oogWrapper > div:first-of-type{
+    top: 10rem;
+    left: 4rem;
+}
+
+.oogWrapper > div:last-of-type{
+    /* transform: scaleX(-1); */
+    border-radius: 100% 29% 80% 0% / 100% 25% 65% 10%;
+
+    top: 10rem;
+    right: 4rem;
+}
+
+.oogWrapper > div:last-of-type .pupil{
+    transform: scaleX(1);
+}
+
+.pupil{
+    width: 1.5rem;
+    height: 4rem;
+    border-radius: 45%;
+    margin: 2rem auto;
+
+    background-color: var(--silhouetteColor);
+}
+
+/* ---------- Neus ------------ */
+
+.neus{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 25% 75% 75% 25% / 53% 50% 50% 47%;
+
+    transform: rotate(90deg);
+
+    top: 16rem;
+    left:-webkit-calc(50% - 1.5rem);
+    left:-moz-calc(50% - 1.5rem);
+    left:calc(50% - 1.5rem);
+}
+
+.neus::before, .neus::after{
+    content: "";
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 100%;
+    background-color: var(--silhouetteColor);
+    z-index: 1;
+
+    position: absolute;
+}
+
+.neus::before{
+    right: 0.7rem;
+}
+
+.neus::after{
+    bottom: 0;
+    right: 0.7rem;
+}
